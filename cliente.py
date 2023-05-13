@@ -1,31 +1,31 @@
-import socket
-
-HOST = '192.168.62.1'
-PORT = 8001
-
-# Create a socket object
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-# Connect the socket to the server's IP address and port
-client_socket.connect((HOST, PORT))
-
-# Send data to the server
-data = 'Hello, server!'
-client_socket.send(data.encode())
-
-# Receive data from the server
-response = client_socket.recv(1024).decode()
-print(response)
-
-# Close the socket connection
-client_socket.close()
-
-# import webbrowser
 # import socket
 
-# url = "http://192.168.62.1:8000/index.html"
+# HOST = '192.168.62.1'
+# PORT = 8001
 
-# webbrowser.open(url)
+# # Create a socket object
+# client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# # Connect the socket to the server's IP address and port
+# client_socket.connect((HOST, PORT))
+
+# # Send data to the server
+# data = 'Hello, server!'
+# client_socket.send(data.encode())
+
+# # Receive data from the server
+# response = client_socket.recv(1024).decode()
+# print(response)
+
+# # Close the socket connection
+# client_socket.close()
+
+import webbrowser
+import socket
+
+url = "http://192.168.62.1:8000/menu.html"
+
+webbrowser.open(url)
 
 # # Create a socket object
 # client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

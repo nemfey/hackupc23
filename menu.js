@@ -1,10 +1,5 @@
-function createRoom()
-{
-    // HTTPS STUFF
-}
-
-function joinRoom()
-{
-    var div = document.getElementById("buttons");
-    div.style.display = "none";
-}
+function welcome() {
+    var nombre = document.getElementById("username-input").value;
+    var mensaje = "Welcome, " + nombre + "!";
+    document.getElementById("mensajeBienvenida").innerHTML = mensaje;
+  }
