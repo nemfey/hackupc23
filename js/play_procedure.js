@@ -16,6 +16,11 @@ function goToMenu()
     window.location.href = "../html/menu.html";
 }
 
+function goBack()
+{
+    window.location.href = "../html/join.html";
+}
+
 function getUsername()
 {
     var username = sessionStorage.getItem('username');
@@ -55,8 +60,8 @@ function blurred_procedure(image,canvas,context)
 {
   // Wait for the image to load
   image.onload = function() {
-    canvas.width = image.width;
-    canvas.height = image.height;
+    // canvas.width = image.width;
+    // canvas.height = image.height;
 
     //resizeImage(image,canvas);
 
