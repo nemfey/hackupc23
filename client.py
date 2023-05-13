@@ -4,7 +4,7 @@ import socket
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 # Get the server IP address and port number
-host = socket.gethostname()
+host = "192.168.56.1"
 port = 12345
 
 # Connect to the server

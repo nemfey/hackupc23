@@ -33,7 +33,7 @@ body {
 
 .centrar {
     display: flex;
-    justify-content: center;
+    justify-content:flex-start;
     align-items: center;
 }
 
@@ -44,11 +44,20 @@ body {
 
 .grid {
     display: grid;
+    grid-template-columns: 1fr 1fr;; 
+  }
+  
+.grid img {
     width: 100%;
-    grid-template-columns: 1fr 1fr;
+    height: 100%;
+    object-fit: cover; 
+  }
+
+.username-text
+{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 20px;
 }
 
-.imgs {
-    max-width: 500px; /* Establecer un ancho máximo para las imágenes */
-	max-height: 200px; 
-}
