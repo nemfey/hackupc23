@@ -7,16 +7,20 @@ function getUsername()
 {
     var username = sessionStorage.getItem('username');
     document.getElementById('username').textContent = username;
-}
-
-function createNewRoom()
-{
-    var username = sessionStorage.getItem('username');
-    localStorage.getItem()
-}
+} 
 
 function getRoomCapacity()
 {
-    var room_capacity = 1;
+    var username = sessionStorage.getItem('username');
+    var roomMapJSON = localStorage.getItem("roomMap");
+    var roomMap = new Map(JSON.parse(roomMapJSON));
+
+    const valueArray = roomMap.get(username);
+    rc = 0;
+    if (valueArray)
+    {
+        rc = valueArray.length;
+    }
+    var room_capacity = rc;
     document.getElementById('room_capacity').textContent = room_capacity;
 }
