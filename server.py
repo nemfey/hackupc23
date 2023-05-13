@@ -1,22 +1,39 @@
 import socket
+import threading
+
+# Function to handle client connections
+def handle_client(client_socket, addr):
+    print('Connected to:', addr)
+
+    # Receive and process incoming messages from the client
+    while True:
+        data = client_socket.recv(1024).decode()
+        if not data:
+            break
+        print('Received from client', addr, ':', data)
+        # Process the data or perform any desired operations
+
+    # Close the client connection
+    client_socket.close()
+    print('Disconnected from:', addr)
 
 # Create a socket object
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Get the server IP address and port number
+# Get the local machine hostname and define a port number
 host = socket.gethostname()
 port = 12345
 
-# Connect to the server
-client_socket.connect((host, port))
-print('Connected to server')
+# Bind the socket to a specific address and port
+server_socket.bind((host, port))
 
-# Send messages to the server
+# Wait for client connections
+server_socket.listen(5)
+print('Waiting for incoming connections...')
+
+# Accept and handle client connections
 while True:
-    message = input('Enter a message to send: ')
-    client_socket.send(message.encode())
-    if message.lower() == 'exit':
-        break
-
-# Close the connection
-client_socket.close()
+    client_socket, addr = server_socket.accept()
+    # Create a new thread for each client connection
+    thread = threading.Thread(target=handle_client, args=(client_socket, addr))
+    thread.start()

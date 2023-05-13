@@ -8,12 +8,15 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" type="text/css" href="menu.css">
+        <link rel="stylesheet" type="text/css" href="play.css">
+        <script src="play.js"></script>
         <title>Game</title>
     </head>
     <body>
         <div class="topnav">
-            <img src="vueling_logo2.png" width="90" height="50" alt="" class="">
+            <img src="vueling_logo2.png" width="90" height="50" alt="" class="" onClick="goToMenu()" style="cursor: pointer;">
+            <p class="username-text"><span id="username"></span></p>
+            <script> getUsername() </script>
         </div>
         <main class="main row mx-0">
             <div class="col-xs-4 col-md-8">
