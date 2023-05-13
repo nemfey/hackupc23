@@ -19,17 +19,20 @@
         </div>
         <h2 class="title">
             <p class="username-text">
-                <p> Welcome
-                    <span id="username"></span>
-                </p>
+                <!-- <p> Welcome <span id="username"></span> </p> -->
+                <p> Choose a room to join </p>
             </p>
-            <script> getUsername() </script>
+            <!-- <script> getUsername() </script> -->
         </h2>
 
-        <div class="pt-4 mt-4 pb-3">
+        <label for="menu">Select a value:</label>
+        <select id="menu">
+        </select>
+        <script>generateMenu()</script>
+        <!-- <div class="pt-4 mt-4 pb-3">
             <label class="font px-3">Room code:</label>
             <input id="room-code-input" type="text" placeholder="Enter the room code..."/>
-        </div>
+        </div> -->
         <div class="pt-5 but-right">
             <a href="../html/play.html" id="formulario" class="btn btn-secondary btn-outline-dark text-white boton">Play</a>
         </div>
