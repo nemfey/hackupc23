@@ -1,6 +1,6 @@
 function goToMenu()
 {
-    window.location.href = "menu.html";
+    window.location.href = "../html/menu.html";
 }
 
 function getUsername()
@@ -12,7 +12,7 @@ function getUsername()
 function loadImage()
 {
     const pixelatedImage = new Image();
-    pixelatedImage.src = "img/EIFFEL.jpg";
+    pixelatedImage.src = "../img/EIFFEL.jpg";
 
     const canvas = document.getElementById('my-canvas');
     const ctx = canvas.getContext('2d');
