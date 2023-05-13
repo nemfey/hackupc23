@@ -17,11 +17,13 @@ body {
     padding: 5px;
     display: flex;
     align-items: center;
+    justify-content: end;
 }
 
 .title {
     margin-top: 23vh;
 }
+
 
 .font {
     font-size: 20px;

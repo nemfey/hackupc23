@@ -19,6 +19,10 @@ body {
     align-items: center;
 }
 
+.logo {
+    cursor: pointer;
+}
+
 .username-text
 {
     display: flex;
