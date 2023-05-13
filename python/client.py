@@ -1,10 +1,10 @@
 import socket
 
 # Create a socket object
-client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Get the server IP address and port number
-host = "192.168.56.1"
+host = socket.gethostname()
 port = 12345
 
 # Connect to the server

@@ -22,7 +22,6 @@ server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 # Get the local machine hostname and define a port number
 host = socket.gethostname()
-host = '0.0.0.0'
 port = 12345
 
 # Bind the socket to a specific address and port
