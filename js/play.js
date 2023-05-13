@@ -12,12 +12,12 @@ function getUsername()
 function loadImage()
 {
     const pixelatedImage = new Image();
-    pixelatedImage.src = "img/croissant.jpg";
+    pixelatedImage.src = "img/EIFFEL.jpg";
 
     const canvas = document.getElementById('my-canvas');
     const ctx = canvas.getContext('2d');
 
-    const iterations = 1500; // Number of despixelation steps
+    const iterations = 1000; // Number of despixelation steps
     let currentIteration = 0;
 
     // Function to update the image data on the canvas

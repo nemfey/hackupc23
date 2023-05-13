@@ -33,13 +33,17 @@ body {
 
 .centrar {
     display: flex;
-    justify-content:flex-start;
+    justify-content:center;
     align-items: center;
 }
 
 .boton {
     display: block;
-    margin: 30px 0;
+    margin-block: 30px;
+}
+
+.margin {
+    margin-top: 12vh;
 }
 
 .grid {
