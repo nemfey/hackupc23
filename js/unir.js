@@ -9,10 +9,19 @@ function getUsername()
     document.getElementById('username').textContent = username;
 }
 
-function joinParty(button) {
-    var roomName = button.getAttribute("nameCell");
-    var roomCapacity = button.getAttribute("capacityCell");
-    window.location.href = "play.html?roomName=" + roomName + "&roomCapacity=" + roomCapacity;
+function joinRoom(hostname) {
+    //var roomName = button.getAttribute("nameCell");
+    //var roomCapacity = button.getAttribute("capacityCell");
+    //console.log(roomName);
+    //console.log(roomCapacity);
+    var username = sessionStorage.getItem('username');
+    var roomMapJSON = localStorage.getItem("roomMap");
+    var roomMap = new Map(JSON.parse(roomMapJSON));
+    roomMap.get(hostname).push(username);
+    localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
+    console.log(roomMap);
+
+    //window.location.href = "play.html?roomName=" + roomName + "&roomCapacity=" + roomCapacity;
 }
 
 // function generateMenu() {

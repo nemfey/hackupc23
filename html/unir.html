@@ -43,18 +43,23 @@
                 var roomMapJSON = localStorage.getItem("roomMap");
                 var roomMap = new Map(JSON.parse(roomMapJSON));
                 var tableBody = document.querySelector("#menu tbody");
-        
+                console.log(roomMap);
+
                 roomMap.forEach((value, key) => {
-                    var row = tableBody.insertRow(-1);
-                    var nameCell = row.insertCell(0);
-                    var capacityCell = row.insertCell(1);
-                    var insertButton = row.insertCell(2);
-        
-                    nameCell.innerHTML = key;
-                    nameCell.className = "font-txt";
-                    capacityCell.innerHTML = value.length+"/8";
-                    capacityCell.className = "font-txt";
-                    insertButton.innerHTML = '<button type="button" class="btn btn-secondary btn-outline-dark text-white">Join Party</button>';
+                    if (value.length < 8)
+                    {
+                        var row = tableBody.insertRow(-1);
+                        var nameCell = row.insertCell(0);
+                        var capacityCell = row.insertCell(1);
+                        var insertButton = row.insertCell(2);
+                        nameCell.innerHTML = key;
+                        nameCell.className = "font-txt";
+                        capacityCell.innerHTML = value.length+"/8";
+                        capacityCell.className = "font-txt font-txt-green";
+                        insertButton.innerHTML = '<button type="button" href="crear.html" class="btn btn-secondary btn-outline-dark text-white">Join Party</button>';
+                        insertButton.setAttribute("onclick", "joinRoom('" + key + "')");
+                    }
+                    //insertButton.innerHTML = '<a href="./crear.html" class="btn btn-secondary btn-outline-dark text-white">Join Party</a>';
                     // insertButton = document.createElement("button");
                     // insertButton.textContent = "Join Party";
                     // insertButton.onclick = function() {
@@ -62,7 +67,6 @@
                     // };
                     // insertButton.className = "join-button";
                     // insertButton.setAttribute("type", "button");
-                    // insertButton.setAttribute("onclick", "joinParty(this)");
                     // insertButtonWrapper = document.createElement("div"); 
                     // insertButtonWrapper.className = "join-button-wrapper";
                     // insertButtonWrapper.appendChild(insertButton); 

@@ -11,6 +11,10 @@ body {
     background-color: rgba(164, 161, 161, 0.148);
 }
   
+.font-txt-green {
+    color: green;
+  }
+
 .topnav {
     background-color: rgb(255,204,0);
     padding: 5px;
