@@ -1,6 +1,11 @@
+@font-face {
+    font-family: 'Rubiksemibold';
+    src: url('/rubik-semi-bold.ttf');
+  }
+  
 body {
     text-align: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubiksemibold', sans-serif;
     height: 100vh;
     margin: 0;
     background-color: rgba(164, 161, 161, 0.148);

@@ -15,14 +15,14 @@
     </head>
     <body>
         <div class="topnav">
-            <img src="../img/vueling_logo2.png" width="90" height="50" alt="" class="" onClick="goToMenu()" style="cursor: pointer;">
+            <img src="../img/vueling_logo2.png" width="90" height="50" alt="" onClick="goToMenu()" class="logo">
         </div>
         <h2 class="title">
             <div class="username-text">
-                <p class="pt-5"> Choose a room to join </p>
+                <p class="pt-5"><b>CHOOSE A ROOM TO JOIN</b></p>
             </div>
         </h2>
-        <div class="pb-5 pt-2 px- centrar">
+        <div class="pb-5 pt-2 px-5 centrar">
             <table class="" id="menu">
                 <thead>
                     <tr>
@@ -48,8 +48,10 @@
                     var insertButton = row.insertCell(2);
         
                     nameCell.innerHTML = key;
+                    nameCell.className = "font-txt";
                     capacityCell.innerHTML = value.length+"/8";
-                    insertButton.innerHTML = '<button onclick="window.location.href=\'play.html\'">Join Party</button>';
+                    capacityCell.className = "font-txt";
+                    insertButton.innerHTML = '<button type="button" href="./crear.html" class="btn btn-secondary btn-outline-dark text-white">Join Party</button>';
                     // insertButton = document.createElement("button");
                     // insertButton.textContent = "Join Party";
                     // insertButton.onclick = function() {

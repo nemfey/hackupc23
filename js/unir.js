@@ -13,7 +13,7 @@ function joinParty(button) {
     var roomName = button.getAttribute("nameCell");
     var roomCapacity = button.getAttribute("capacityCell");
     window.location.href = "play.html?roomName=" + roomName + "&roomCapacity=" + roomCapacity;
-  }
+}
 
 // function generateMenu() {
 //     var roomMapJSON = localStorage.getItem("roomMap");
