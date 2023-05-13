@@ -9,7 +9,6 @@ function goToMenu()
 	window.location.href = "menu.html";
 }
 
-<<<<<<< Updated upstream
 function createRoom()
 {
 	var username = document.getElementById('username-input').value;
@@ -38,8 +37,6 @@ function createRoom()
 //	sessionStorage.setItem('username',username);
 //}
 
-=======
->>>>>>> Stashed changes
 function create_alert(element, s){
     if (element) return;
     const al = document.createElement('div'); 
@@ -53,10 +50,7 @@ function create_alert(element, s){
 
 // var roomMap = localStorage.getItem("roomMap");
 
-<<<<<<< Updated upstream
 // Create room
-=======
->>>>>>> Stashed changes
 $(window).on("load",  async () => {
 
     $('#formulario').on("click", () => {
@@ -71,12 +65,7 @@ $(window).on("load",  async () => {
             return;
         }
 		else {
-<<<<<<< Updated upstream
 			createRoom();
-=======
-			var username = document.getElementById('username-input').value;
-			sessionStorage.setItem('username',username);
->>>>>>> Stashed changes
 			window.location.href = "crear.html";
 		}
         return;
@@ -84,10 +73,7 @@ $(window).on("load",  async () => {
 
 })
 
-<<<<<<< Updated upstream
 // Join room
-=======
->>>>>>> Stashed changes
 $(window).on("load",  async () => {
 
     $('#join').on("click", () => {
