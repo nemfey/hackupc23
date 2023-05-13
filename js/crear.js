@@ -7,6 +7,7 @@ function getUsername()
 {
     var username = sessionStorage.getItem('username');
     document.getElementById('username').textContent = username;
+    console.log(username);
 } 
 
 function getRoomCapacity()
@@ -23,4 +24,5 @@ function getRoomCapacity()
     }
     var room_capacity = rc;
     document.getElementById('room_capacity').textContent = room_capacity;
+    console.log(room_capacity);
 }

@@ -25,10 +25,6 @@ function createRoom()
 	}
 	roomMap.set(username,[username]);
 	localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
-
-	roomMap.forEach((value, key) => {
-        console.log(value);
-     });
 }
 
 //function joinRoom()
