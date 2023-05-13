@@ -9,7 +9,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" type="text/css" href="../css/play.css">
-        <script src="../js/play_blurred.js"></script>
+        <script src="../js/play_procedure.js"></script>
         <title>Game</title>
     </head>
     <body>
@@ -28,29 +28,30 @@
                     <tr class="" >
                         <td class="">
                             <button href="" class="btn btn-secondary btn-outline-dark text-white">Option 1</button>
-                            <p class="style2">Macaron</p>
+                            <p class="style2" id="option1"></p>
                         </td>
                     </tr>
                     <tr>
                         <td class="">
                             <button href="" class="btn btn-secondary btn-outline-dark text-white">Option 2</button>
-                            <p class="style2">Paris Brest</p>
+                            <p class="style2" id="option2"></p>
                         </td>
                     </tr>
                     <tr>
                         <td class="">
                             <button href="" class="btn btn-secondary btn-outline-dark text-white">Option 3</button>
-                            <p class="style2">Croissant</p>
+                            <p class="style2" id="option3"></p>
                         </td>
                     </tr>
                     <tr>
                         <td class="">
                             <button href="" class="btn btn-secondary btn-outline-dark text-white">Option 4</button>
-                            <p class="style2">Éclair</p>
+                            <p class="style2" id="option4"></p>
                         </td>
                     </tr>
                 </tbody>
             </table>
+            <script>loadOptions()</script>
         </main>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
