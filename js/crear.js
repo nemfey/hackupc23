@@ -13,11 +13,11 @@ function getHostname()
 
 function getRoomCapacity()
 {
-    var username = sessionStorage.getItem('username');
+    var hostname = sessionStorage.getItem('hostname');
     var roomMapJSON = localStorage.getItem("roomMap");
     var roomMap = new Map(JSON.parse(roomMapJSON));
 
-    const valueArray = roomMap.get(username);
+    const valueArray = roomMap.get(hostname);
     rc = 0;
     if (valueArray)
     {
@@ -26,4 +26,5 @@ function getRoomCapacity()
     var room_capacity = rc;
     document.getElementById('room_capacity').textContent = room_capacity;
     console.log(room_capacity);
+    console.log(roomMap.get(hostname));
 }

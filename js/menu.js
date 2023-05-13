@@ -23,7 +23,7 @@ function createRoom()
 	{
 		roomMap = new Map();
 	}
-	roomMap.set(username,[username]);
+	roomMap.set(username,[[username,0]]);
 	localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
     sessionStorage.setItem('hostname',username); // who is my host
 }

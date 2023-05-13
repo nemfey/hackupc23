@@ -17,7 +17,7 @@ function joinRoom(hostname) {
     var username = sessionStorage.getItem('username');
     var roomMapJSON = localStorage.getItem("roomMap");
     var roomMap = new Map(JSON.parse(roomMapJSON));
-    roomMap.get(hostname).push(username);
+    roomMap.get(hostname).push([username,0]);
     localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
     sessionStorage.setItem('hostname',hostname); // who is my host
 
