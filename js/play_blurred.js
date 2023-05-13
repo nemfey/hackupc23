@@ -27,7 +27,7 @@ function loadImage()
 
     // Gradually reduce the blur effect over time
     let blurAmount = 50;
-    const animationDuration = 4000; // Adjust this value to control the duration of the animation
+    const animationDuration = 4500; // Adjust this value to control the duration of the animation
     const blurStep = blurAmount / (animationDuration / 16); // Adjust 16 for a smoother animation (60 fps)
 
     const animate = () => {
