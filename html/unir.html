@@ -11,31 +11,64 @@
         <link rel="stylesheet" type="text/css" href="../css/unir.css">
         <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E">        
         <script src="../js/unir.js"></script>
-        <title>Menu</title>
+        <title>Lobby</title>
     </head>
     <body>
         <div class="topnav">
             <img src="../img/vueling_logo2.png" width="90" height="50" alt="" class="" onClick="goToMenu()" style="cursor: pointer;">
         </div>
         <h2 class="title">
-            <p class="username-text">
-                <!-- <p> Welcome <span id="username"></span> </p> -->
-                <p> Choose a room to join </p>
-            </p>
-            <!-- <script> getUsername() </script> -->
+            <div class="username-text">
+                <p class="pt-5"> Choose a room to join </p>
+            </div>
         </h2>
-
-        <label for="menu">Select a value:</label>
-        <select id="menu">
-        </select>
-        <script>generateMenu()</script>
-        <!-- <div class="pt-4 mt-4 pb-3">
-            <label class="font px-3">Room code:</label>
-            <input id="room-code-input" type="text" placeholder="Enter the room code..."/>
-        </div> -->
-        <div class="pt-5 but-right">
-            <a href="../html/play.html" id="formulario" class="btn btn-secondary btn-outline-dark text-white boton">Play</a>
+        <div class="pb-5 pt-2 px- centrar">
+            <table class="" id="menu">
+                <thead>
+                    <tr>
+                        <th class="font-title">Room's name</th>
+                        <th class="font-title">Room capacity</th>
+                        <th class="font-title">Join?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
         </div>
+        <script>
+            function generateMenu() {
+                var roomMapJSON = localStorage.getItem("roomMap");
+                var roomMap = new Map(JSON.parse(roomMapJSON));
+                var tableBody = document.querySelector("#menu tbody");
+        
+                roomMap.forEach((value, key) => {
+                    var row = tableBody.insertRow(-1);
+                    var nameCell = row.insertCell(0);
+                    var capacityCell = row.insertCell(1);
+                    var insertButton = row.insertCell(2);
+        
+                    nameCell.innerHTML = key;
+                    capacityCell.innerHTML = value.length+"/8";
+                    insertButton.innerHTML = '<button onclick="window.location.href=\'play.html\'">Join Party</button>';
+                    // insertButton = document.createElement("button");
+                    // insertButton.textContent = "Join Party";
+                    // insertButton.onclick = function() {
+                    //     window.location.href = "play.html";
+                    // };
+                    // insertButton.className = "join-button";
+                    // insertButton.setAttribute("type", "button");
+                    // insertButton.setAttribute("onclick", "joinParty(this)");
+                    // insertButtonWrapper = document.createElement("div"); 
+                    // insertButtonWrapper.className = "join-button-wrapper";
+                    // insertButtonWrapper.appendChild(insertButton); 
+                });
+            }
+            generateMenu();
+        </script>
+
+        <!-- <div class="pt-5 but-right">
+            <a href="../html/play.html" id="formulario" class="btn btn-secondary btn-outline-dark text-white boton">Play</a>
+        </div> -->
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

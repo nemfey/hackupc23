@@ -9,18 +9,26 @@ function getUsername()
     document.getElementById('username').textContent = username;
 }
 
-function generateMenu()
-{
-    var roomMapJSON = localStorage.getItem("roomMap");
-    var roomMap = new Map(JSON.parse(roomMapJSON));
-    var menu = document.getElementById('menu');
+function joinParty(button) {
+    var roomName = button.getAttribute("nameCell");
+    var roomCapacity = button.getAttribute("capacityCell");
+    window.location.href = "play.html?roomName=" + roomName + "&roomCapacity=" + roomCapacity;
+  }
+
+// function generateMenu() {
+//     var roomMapJSON = localStorage.getItem("roomMap");
+//     var roomMap = new Map(JSON.parse(roomMapJSON));
+//     var menu = document.getElementById("menu");
   
-    console.log(roomMap);
-    // Dynamically generate the menu options
-    roomMap.forEach((value, key) => {
-        const optgroup = document.createElement('optgroup');
-        optgroup.label = key;
-      
-        menu.appendChild(optgroup);
-      });
-}
+//     console.log(roomMap);
+//     // Dynamically generate the menu options
+//     roomMap.forEach((value, key) => {
+//       const optgroup = document.createElement("optgroup");
+//       optgroup.label = key;
+  
+//       menu.appendChild(optgroup);
+//     });
+//     console.log(menu);
+//     return menu;
+//   }
+
