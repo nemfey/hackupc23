@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" type="text/css" href="menu.css">
+        <link rel="stylesheet" type="text/css" href="unir.css">
         <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z'/%3E%3C/svg%3E">        
         <script src="unir.js"></script>
         <title>Menu</title>
@@ -16,12 +16,17 @@
     <body>
         <div class="topnav">
             <img src="vueling_logo2.png" width="90" height="50" alt="" class="" onClick="goToMenu()" style="cursor: pointer;">
+            <p class="username-text"><span id="username"></span></p>
+            <script> getUsername() </script>
         </div>
         <h1 class="title">VEREMOS QUE NOMBRE</h1>
 
         <div class="pt-5 pb-3">
             <label class="font px-3">Room code:</label>
             <input id="room-code-input" type="text" placeholder="Enter the room code..."/>
+            <div class="pt-5 but-right">
+                <a href="play.html" id="formulario" class="btn btn-secondary btn-outline-dark text-white boton">Play</a>
+            </div>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 

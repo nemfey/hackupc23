@@ -8,3 +8,9 @@ function goToMenu()
 {
 	window.location.href = "menu.html";
 }
+
+function saveName()
+{
+	var username = document.getElementById('username-input').value;
+	sessionStorage.setItem('username',username);
+}
