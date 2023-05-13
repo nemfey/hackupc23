@@ -56,20 +56,10 @@
                         nameCell.className = "font-txt";
                         capacityCell.innerHTML = value.length+"/8";
                         capacityCell.className = "font-txt font-txt-green";
-                        insertButton.innerHTML = '<button type="button" href="crear.html" class="btn btn-secondary btn-outline-dark text-white">Join Party</button>';
+                        //insertButton.innerHTML = '<button type="button" href="crear.html" class="btn btn-secondary btn-outline-dark text-white">Join Party</button>';
+                        insertButton.innerHTML = '<a href="./crear.html" class="btn btn-secondary btn-outline-dark text-white">Join Party</a>';
                         insertButton.setAttribute("onclick", "joinRoom('" + key + "')");
                     }
-                    //insertButton.innerHTML = '<a href="./crear.html" class="btn btn-secondary btn-outline-dark text-white">Join Party</a>';
-                    // insertButton = document.createElement("button");
-                    // insertButton.textContent = "Join Party";
-                    // insertButton.onclick = function() {
-                    //     window.location.href = "play.html";
-                    // };
-                    // insertButton.className = "join-button";
-                    // insertButton.setAttribute("type", "button");
-                    // insertButtonWrapper = document.createElement("div"); 
-                    // insertButtonWrapper.className = "join-button-wrapper";
-                    // insertButtonWrapper.appendChild(insertButton); 
                 });
             }
             generateMenu();

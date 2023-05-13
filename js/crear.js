@@ -4,11 +4,11 @@ function goToMenu()
 }
 
 
-function getUsername()
+function getHostname()
 {
-    var username = sessionStorage.getItem('username');
-    document.getElementById('username').textContent = username;
-    console.log(username);
+    var hostname = sessionStorage.getItem('hostname');
+    document.getElementById('hostname').textContent = hostname;
+    console.log(hostname);
 } 
 
 function getRoomCapacity()

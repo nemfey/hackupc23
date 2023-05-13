@@ -25,6 +25,7 @@ function createRoom()
 	}
 	roomMap.set(username,[username]);
 	localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
+    sessionStorage.setItem('hostname',username); // who is my host
 }
 
 //function joinRoom()

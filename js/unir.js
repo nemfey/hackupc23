@@ -19,7 +19,7 @@ function joinRoom(hostname) {
     var roomMap = new Map(JSON.parse(roomMapJSON));
     roomMap.get(hostname).push(username);
     localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
-    console.log(roomMap);
+    sessionStorage.setItem('hostname',hostname); // who is my host
 
     //window.location.href = "play.html?roomName=" + roomName + "&roomCapacity=" + roomCapacity;
 }
