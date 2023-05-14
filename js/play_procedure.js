@@ -1,4 +1,11 @@
+var hostname = sessionStorage.getItem('hostname');
+var username = sessionStorage.getItem('username');
+var roomMapJSON = localStorage.getItem("roomMap");
+var roomMap = new Map(JSON.parse(roomMapJSON));
+var players = roomMap.get(hostname);
+
 var currentImage = 0;
+
 const optionsMap = new Map();
 optionsMap.set(1,['Croissant','Baguette', 'Macaron', 'Éclair']);
 optionsMap.set(2,['Eiffel Tower','La Grande Arche', 'La Tour First', 'The Louvre']);
@@ -53,28 +60,28 @@ function loadOptions()
 
 function checkIfCorrect(option)
 {
-    if (document.getElementById(option).textContent == optionsMap.get(currentImage)[0])
+    if (document.getElementById(option).textContent == optionsMap.get(currentImage)[0] && !(playerPressed.get(username)))
     {
-        // DIBUJAR ALGO VERDE
-        var hostname = sessionStorage.getItem('hostname');
-        var username = sessionStorage.getItem('username');
         var roomMapJSON = localStorage.getItem("roomMap");
         var roomMap = new Map(JSON.parse(roomMapJSON));
         var players = roomMap.get(hostname);
 
         for (let i = 0; i < players.length; i++) {
             if (players[i][0] === username) {
-              players[i][1] += 100 / intervalId; // Return the corresponding int value
+                players[i][1] += 50; // Return the corresponding int value
             }
           }
         
         roomMap.set(hostname, players);
         localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
+        generateTable();
     }
     else
     {
+        console.log(playerPressed.get(username));
         console.log("INCORRECT");
     }
+    playerPressed.set(username,true);
 }
 
 var intervalId = 1;
@@ -194,15 +201,19 @@ function resizeImage(images,canvas)
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
 
+var playerPressed = new Map();
+
 function imageFinishShowing()
 {
-    console.log("STOP");
     const start = Date.now();
-    while (Date.now() - start < 3000) {}
-    console.log("CONTINUE");
-
+    while (Date.now() - start < 1500) {}
     if (currentImage < 9)
     {
+
+        for (const [key, _] of playerPressed) {
+            playerPressed.set(key, false);
+        }
+
         loadImages();
     }
     else
