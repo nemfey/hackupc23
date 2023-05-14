@@ -25,6 +25,7 @@ host = socket.gethostname()
 port = 12345
 
 # Bind the socket to a specific address and port
+print(host)
 server_socket.bind((host, port))
 
 # Wait for client connections

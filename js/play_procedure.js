@@ -1,4 +1,4 @@
-const randomNumber = Math.floor(Math.random() * 10) + 1;
+var currentImage = 0;
 const optionsMap = new Map();
 optionsMap.set(1,['Croissant','Baguette', 'Macaron', 'Éclair']);
 optionsMap.set(2,['Eiffel Tower','La Grande Arche', 'La Tour First', 'The Louvre']);
@@ -10,6 +10,17 @@ optionsMap.set(7,['The Louvre','Château de Versailles', 'Parque Montsouris', 'L
 optionsMap.set(8,['Château de Versailles','Croissant', 'Canal du oiseau', 'Oiseau bleu']);
 optionsMap.set(9,['Voltaire','Rosseau', 'Macron', 'Mime']);
 optionsMap.set(10,['Macaron','Feta', 'Éclair', 'Emmental']);
+
+function shuffleArray(array)
+{
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    return array;
+}
 
 function goToMenu()
 {
@@ -29,19 +40,55 @@ function getUsername()
 
 function loadOptions()
 {
-    var options = optionsMap.get(randomNumber);
-    document.getElementById('option1').textContent = options[0];
-    document.getElementById('option2').textContent = options[1]; 
-    document.getElementById('option3').textContent = options[2]; 
-    document.getElementById('option4').textContent = options[3];
+    var options = optionsMap.get(currentImage);
+    var options_random = options.slice();
 
-
+    shuffleArray(options_random);
+    console.log(options_random);
+    document.getElementById('option1').textContent = options_random[0];
+    document.getElementById('option2').textContent = options_random[1]; 
+    document.getElementById('option3').textContent = options_random[2]; 
+    document.getElementById('option4').textContent = options_random[3];
 }
 
-function loadImage()
+function checkIfCorrect(option)
 {
+    if (document.getElementById(option).textContent == optionsMap.get(currentImage)[0])
+    {
+        // DIBUJAR ALGO VERDE
+        var hostname = sessionStorage.getItem('hostname');
+        var username = sessionStorage.getItem('username');
+        var roomMapJSON = localStorage.getItem("roomMap");
+        var roomMap = new Map(JSON.parse(roomMapJSON));
+        var players = roomMap.get(hostname);
+
+        for (let i = 0; i < players.length; i++) {
+            if (players[i][0] === username) {
+              players[i][1] += 100 / intervalId; // Return the corresponding int value
+            }
+          }
+        
+        roomMap.set(hostname, players);
+        localStorage.setItem('roomMap',JSON.stringify(Array.from(roomMap)));
+    }
+    else
+    {
+        console.log("INCORRECT");
+    }
+}
+
+var intervalId = 1;
+
+function loadImages()
+{
+    currentImage++;
+    loadOptions();
+    // Start timer
+    intervalId = setInterval(1000);
+    //loadOptions();
+
     var image = new Image();
-    image.src = "../img/"+randomNumber+".jpg"; // Replace with the path to your image
+    image.src = "../img/"+currentImage+".jpg"; // Replace with the path to your image
     var canvas = document.getElementById('my-canvas');
     var context = canvas.getContext('2d');
 
@@ -60,11 +107,6 @@ function blurred_procedure(image,canvas,context)
 {
   // Wait for the image to load
   image.onload = function() {
-    // canvas.width = image.width;
-    // canvas.height = image.height;
-
-    //resizeImage(image,canvas);
-
     // Draw the fully blurred image
     context.filter = 'blur(10px)';
     context.drawImage(image, 0, 0);
@@ -83,6 +125,11 @@ function blurred_procedure(image,canvas,context)
       if (blurAmount > 0) {
         requestAnimationFrame(animate);
       }
+      else
+      {
+        imageFinishShowing();
+        return;
+      }
     };
 
     // Start the animation
@@ -95,12 +142,11 @@ function pixelated_procedure(image,canvas,context)
     var iterations = 1000; // Number of despixelation steps
     let currentIteration = 0;
 
-    //resizeImage(image,canvas);
-
     // Function to update the image data on the canvas
     function despixelate() {
       if (currentIteration >= iterations) {
-        return; // Stop once the desired level of despixelation is reached
+        imageFinishShowing();
+        return;
       }
 
       var targetWidth = Math.floor(image.width * (currentIteration + 1) / iterations);
@@ -146,4 +192,21 @@ function resizeImage(images,canvas)
     // Clear the canvas and draw the resized image
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.drawImage(image, 0, 0, canvas.width, canvas.height);
+}
+
+function imageFinishShowing()
+{
+    console.log("STOP");
+    const start = Date.now();
+    while (Date.now() - start < 3000) {}
+    console.log("CONTINUE");
+
+    if (currentImage < 9)
+    {
+        loadImages();
+    }
+    else
+    {
+        console.log("GAME FINISHED");
+    }
 }
