@@ -71,7 +71,7 @@
                     var roomMap = new Map(JSON.parse(roomMapJSON));
                     var players = roomMap.get(hostname);
                     var tableBody = document.querySelector("#usersPoints tbody");
-    
+                    tableBody.innerHTML = "";
                     players.forEach((value, key) => {
                         var row = tableBody.insertRow(-1);
                         var nameCell = row.insertCell(0);
