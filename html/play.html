@@ -51,8 +51,40 @@
                     </tr>
                 </tbody>
             </table>
-            <script>loadImages()</script>
-            <!-- <script>loadOptions()</script> -->
+            <script>loadOptions()</script>
+            <div class="py-5 px-5 centrar">
+                <table class="table tbody tr" id="usersPoints">
+                    <thead>
+                        <tr class="th">
+                            <th class="font-title th">Username</th>
+                            <th class="font-title th">Points</th>
+                        </tr>
+                    </thead>
+                    <tbody class="td font-txt">
+                    </tbody>
+                </table>
+            </div>
+
+            <script>
+                function generateTable() {
+                    var hostname = sessionStorage.getItem('hostname');
+                    var roomMapJSON = localStorage.getItem("roomMap");
+                    var roomMap = new Map(JSON.parse(roomMapJSON));
+                    var players = roomMap.get(hostname);
+                    var tableBody = document.querySelector("#usersPoints tbody");
+    
+                    players.forEach((value, key) => {
+                        var row = tableBody.insertRow(-1);
+                        var nameCell = row.insertCell(0);
+                        var pointsCell = row.insertCell(1);
+                        nameCell.innerHTML = value[0];
+                        nameCell.className = "font td th";
+                        pointsCell.innerHTML = value[1];
+                        pointsCell.className = "font td th";
+                    });
+                }
+                generateTable();
+            </script>
         </main>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
