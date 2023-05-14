@@ -1,14 +1,13 @@
 @font-face {
     font-family: 'Rubiksemibold';
-    src: url('./rubik-semi-bold.ttf');
-  }
-
+    src:url(../rubik-semi-bold.ttf);
+}
 
 body {
-    text-align: center;
     font-family: 'Rubiksemibold', sans-serif;
     height: 100vh;
     margin: 0;
+    text-align: center;
     background-color: rgba(164, 161, 161, 0.148);
 }
   
@@ -52,6 +51,6 @@ body {
 }
 
 .imgs {
-    max-width: 500px; /* Establecer un ancho máximo para las imágenes */
+    max-width: 500px;
 	max-height: 200px; 
 }

@@ -29,7 +29,7 @@ function goToMenu()
 
 function goBack()
 {
-    window.location.href = "../html/join.html";
+    window.location.href = "../html/unir.html";
 }
 
 function getUsername()

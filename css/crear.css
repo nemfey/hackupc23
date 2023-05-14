@@ -1,8 +1,8 @@
 @font-face {
     font-family: 'Rubiksemibold';
-    src: url('/rubik-semi-bold.ttf');
-  }
-  
+    src:url(../rubik-semi-bold.ttf);
+}
+
 body {
     text-align: center;
     font-family: 'Rubiksemibold', sans-serif;
