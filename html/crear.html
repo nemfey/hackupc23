@@ -37,6 +37,30 @@
         <div>
             <a href="../html/play.html">PLAY</a>
         </div>
+        <div class="py-5 px-5 centrar">
+            <table class="table tr" id="playersRow">
+            </table>
+          </div>
+
+        <script>
+            function generatePlayers() {
+                var hostname = sessionStorage.getItem('hostname');
+                var roomMapJSON = localStorage.getItem("roomMap");
+                var roomMap = new Map(JSON.parse(roomMapJSON));
+                var players = roomMap.get(hostname);
+                var tableBody = document.querySelector("#playersRow");
+                var row = tableBody.insertRow();
+
+                players.forEach((value, key) => {
+                    var nameCell = row.insertCell();
+                    nameCell.innerHTML = value[0];
+                    nameCell.className = "font";
+                });
+            }
+            generatePlayers();
+        </script>
+
+
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
       integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

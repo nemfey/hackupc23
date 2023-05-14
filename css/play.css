@@ -103,7 +103,3 @@ canvas {
     text-align: center;
 }
 
-.tbody tr:nth-child(even) {
-    background-color: rgb(248, 237, 176);
-} 
-
